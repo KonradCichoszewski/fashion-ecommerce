@@ -5,6 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    api: {
+      products: 'https://fakestoreapi.com/products',
+    }
   },
   mutations: {
   },
