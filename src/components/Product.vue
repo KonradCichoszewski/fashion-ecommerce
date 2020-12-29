@@ -22,4 +22,9 @@ export default {
   width: 280px
   word-break: break-word
   box-shadow: 2px 4px 3px #dddddd
+  transition-duration: 0.23s
+  cursor: pointer
+  &:hover
+    transform: translateY(-3px) translateX(-1px)
+    box-shadow: 3px 7px 5px #dddddd
 </style>

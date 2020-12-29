@@ -2,8 +2,8 @@
   <div class="navbar">
     <div class="logo">
       <router-link to="/"
-        ><img class="logo" src="@/assets/logo.png"
-      /></router-link>
+        ><img class="logo" src="@/assets/logo.png" />Vuetyful</router-link
+      >
     </div>
     <div class="categories">
       <router-link class="category" to="/man">MAN</router-link>
@@ -11,8 +11,10 @@
       <router-link class="category" to="/kids">KIDS</router-link>
     </div>
     <div class="options">
-      <p v-if="true">Log in</p>
-      <p>Cart</p>
+      <router-link class="option" v-if="!$store.state.user" to="/login"
+        >Log in</router-link
+      >
+      <router-link class="option" to="/cart">Cart</router-link>
     </div>
   </div>
 </template>
@@ -48,4 +50,9 @@ export default {};
   flex-grow: 1
   display: flex
   justify-content: flex-end
+  margin-right: 30px
+
+.option
+  text-decoration: none
+  margin-right: 20px
 </style>

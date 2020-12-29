@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar />
     <div class="content">
-      <SideMenu v-if="isProduct" />
+      <SideMenu v-if="this.$route.meta.side" />
       <router-view class="view" />
     </div>
     <Footer />
@@ -21,13 +21,8 @@ export default {
     Footer,
     SideMenu
   },
-  computed: {
-    isProduct() {
-      return (
-        this.$route.name === "ProductsListing" ||
-        this.$route.name === "ProductDetail"
-      );
-    }
+  created() {
+    this.$store.dispatch("fetchProducts");
   }
 };
 </script>

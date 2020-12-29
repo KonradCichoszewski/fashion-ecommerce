@@ -1,28 +1,25 @@
 <template>
   <div class="products-list">
-    <!-- <div>{{ $route.params.category }}</div> -->
-    <Product v-for="product in products" :key="product.id" :product="product" />
+    <Product
+      v-for="product in this.$store.state.products"
+      :key="product.id"
+      :product="product"
+    />
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import Product from "@/components/Product";
 
 export default {
   components: {
     Product
   },
-  data() {
-    return {
-      products: null
-    };
-  },
-  created() {
-    axios
-      .get(this.$store.state.api.products)
-      .then(response => (this.products = response.data))
-      .catch(error => console.error(error));
+  computed: {
+    group() {
+      // let group = this.$route.full
+      return "chuj";
+    }
   }
 };
 </script>
