@@ -49,7 +49,7 @@ export default [
   },
   {
     title: 'WOMAN',
-    group: 1,
+    group: 2,
     categories: [
       {
         title: 'Outwear',
@@ -97,7 +97,7 @@ export default [
   },
   {
     title: 'KIDS',
-    group: 1,
+    group: 3,
     categories: [
       {
         title: 'Outwear',

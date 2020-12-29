@@ -2,7 +2,10 @@
   <div class="navbar">
     <div class="logo">
       <router-link to="/"
-        ><img class="logo" src="@/assets/logo.png" />Vuetyful</router-link
+        ><div class="logo-wrapper">
+          <img class="logo" src="@/assets/logo.png" />
+          <h3 class="logo-text">Vuetyful</h3>
+        </div></router-link
       >
     </div>
     <div class="categories">
@@ -36,7 +39,15 @@ export default {};
 
 .logo
   height: 60px
-  margin: 0 150px 0 20px
+  margin: 0 5px 0 20px
+
+.logo-text
+  margin-right: 100px
+  font-size: 2em
+
+.logo-wrapper
+  display: flex
+  align-items: center
 
 .category
   margin-right: 90px

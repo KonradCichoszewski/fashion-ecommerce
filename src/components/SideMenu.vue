@@ -6,7 +6,7 @@
         v-for="header in $store.state.headers"
         :key="header.title"
       >
-        <p @click="selectedGroup = header.title">
+        <p @click="$router.push('/' + header.title.toLowerCase() + '/')">
           {{ header.title }}
         </p>
         <div
@@ -57,10 +57,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      selectedGroup: "MAN"
-    };
+  computed: {
+    selectedGroup() {
+      return this.$route.path.split("/")[1].toUpperCase();
+    }
   }
 };
 </script>
@@ -74,9 +74,9 @@ export default {
   background: #e5e5e5
   position: sticky
   top: 90px
-  transition-duration: 0.3s
+  transition-duration: .2s
   &:hover
-    background: #d9d9d9
+    background: #dddddd
 
 .wrapper
   background: transparent
