@@ -5,6 +5,8 @@ Project uses qutie extensively vue-router, e.g. for conditional displaying some 
 Vuex is used to keep the data which needs to be available in the whole application, for example basic user info or full list of available products.
 Application is connected to mock API (www.mockapi.io), which provides the list of products kept in the store once the app is initialized.
 
+Screenshots provided in the 'screenshots' directory in the root of the project.
+
 
 
 ## Project setup
