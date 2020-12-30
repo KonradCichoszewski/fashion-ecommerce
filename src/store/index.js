@@ -10,7 +10,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: null,
+    user: {
+      email: null,
+      authenticated: false
+    },
     cart: null,
     products: null,
     // In production app version, 'headers' would be fetched form the database when the app is initialized

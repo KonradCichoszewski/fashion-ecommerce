@@ -1,12 +1,8 @@
 <template>
   <div class="navbar">
-    <div class="logo">
-      <router-link to="/"
-        ><div class="logo-wrapper">
-          <img class="logo" src="@/assets/logo.png" />
-          <h3 class="logo-text">Vuetyful</h3>
-        </div></router-link
-      >
+    <div class="logo" @click="$router.push('/')">
+      <img class="logo-image" src="@/assets/logo.png" />
+      <p class="logo-text">Vuetyful</p>
     </div>
     <div class="categories">
       <router-link class="category" to="/man">MAN</router-link>
@@ -14,10 +10,12 @@
       <router-link class="category" to="/kids">KIDS</router-link>
     </div>
     <div class="options">
-      <router-link class="option" v-if="!$store.state.user" to="/login"
-        >Log in</router-link
+      <router-link class="option" v-if="!$store.state.user.email" to="/login"
+        ><h3>Log in</h3></router-link
       >
-      <router-link class="option" to="/cart">Cart</router-link>
+      <router-link class="option" to="/cart"
+        ><img class="cart" src="@/assets/cart.png"
+      /></router-link>
     </div>
   </div>
 </template>
@@ -38,16 +36,17 @@ export default {};
   z-index: 1
 
 .logo
-  height: 60px
-  margin: 0 5px 0 20px
-
-.logo-text
-  margin-right: 100px
-  font-size: 2em
-
-.logo-wrapper
   display: flex
   align-items: center
+  margin: 0 150px 0 20px
+  cursor: pointer
+
+.logo-image
+  height: 60px
+
+.logo-text
+  font-size: 2em
+  padding-left: 10px
 
 .category
   margin-right: 90px
@@ -61,9 +60,17 @@ export default {};
   flex-grow: 1
   display: flex
   justify-content: flex-end
-  margin-right: 30px
+  align-items: center
+  margin-right: 40px
 
 .option
   text-decoration: none
+  margin-right: 20px
+
+.cart
+  height: 50px
+  background: transparent
+
+h3
   margin-right: 20px
 </style>
