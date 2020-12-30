@@ -43,7 +43,7 @@ export default {
 .content
   display: flex
   position: relative
-  min-height: calc( 100vh - 90px)
+  min-height: 100vh
 
 .view
   background: $secondarybg

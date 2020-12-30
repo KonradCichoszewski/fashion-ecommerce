@@ -70,10 +70,11 @@ export default {
   min-width: 230px
   display: flex
   flex-direction: column
-  height: calc( 100vh - 90px)
+  height: 100vh
   background: #e5e5e5
   position: sticky
-  top: 90px
+  top: 0px
+  padding-top: 90px
   transition-duration: .2s
   &:hover
     background: #dddddd

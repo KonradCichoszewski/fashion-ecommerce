@@ -69,6 +69,7 @@ export default {
 
 <style lang="sass" scoped>
 .products-list
+  padding-top: 90px
   display: inline-flex
   flex-flow: row wrap
   justify-content: center

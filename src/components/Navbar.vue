@@ -34,14 +34,20 @@ export default {};
   display: flex
   height: 90px
   align-items: center
-  position: sticky
+  position: fixed
   top: 0
-  bottom: calc( 100vh + 150px)
   box-shadow: 0 2px 5px #dddddd
   z-index: 1
+  transition-duration: 0.15s
+  width: 100%
   &.dark
-    background: $primarytext
+    background: #33333355
     color: white
+    height: 60px
+    box-shadow: none
+    position: fixed
+    &:hover
+      background: #33333399
 
 .logo
   display: flex
