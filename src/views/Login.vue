@@ -41,6 +41,7 @@ export default {
 .login
   display: flex
   justify-content: center
+  margin-top: 90px
 
 .login-section
   background: inherit

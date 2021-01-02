@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="main">
+    <div class="main" @click="scroll()">
       <div class="plate">
         <h1>Welcome</h1>
         <h2>to the Vuetyful home of fashion</h2>
@@ -13,7 +13,16 @@
 
 <script>
 export default {
-  name: "Home"
+  name: "Home",
+  methods: {
+    scroll() {
+      window.scrollBy({
+        top: window.innerHeight - pageYOffset,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  }
 };
 </script>
 
@@ -24,12 +33,14 @@ export default {
   flex-direction: column
 
 .main
-  background-image: url(https://picsum.photos/3500/1500)
+  background-color: $secondarybg
+  background-image: url('../assets/mainImage3.jpeg')
   background-size: cover
   height: 100vh
   display: flex
   align-items: center
   justify-content: center
+  cursor: pointer
 
 .plate
   background: #33333355
@@ -37,17 +48,17 @@ export default {
   flex-direction: column
   align-items: center
   padding: 30px 50px
-  box-shadow: 0 0 1px 1px #33333355
+  transition-duration: .2s
   > *
     background: transparent
     color: white
   > h1
     font-size: 100px
     font-weight: 900
+  &:hover
+    background: #33333377
 
 .description
-  height: calc(100vh - 90px)
+  height: 100vh
   background: $secondarybg
-
-.gallery
 </style>

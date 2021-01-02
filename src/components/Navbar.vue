@@ -36,7 +36,7 @@ export default {};
   align-items: center
   position: fixed
   top: 0
-  box-shadow: 0 2px 5px #dddddd
+  box-shadow: 0 2px 5px #99999944
   z-index: 1
   transition-duration: 0.15s
   width: 100%

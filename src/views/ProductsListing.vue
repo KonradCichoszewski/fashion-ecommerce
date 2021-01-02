@@ -1,6 +1,12 @@
 <template>
   <div class="products-list">
-    <Product v-for="product in products" :key="product.id" :product="product" />
+    <transition-group name="fade" class="transition">
+      <Product
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
+    </transition-group>
   </div>
 </template>
 
@@ -70,8 +76,25 @@ export default {
 <style lang="sass" scoped>
 .products-list
   padding-top: 90px
+
+.transition
+  background: transparent
   display: inline-flex
   flex-flow: row wrap
   justify-content: center
-  align-items: flex-start
+  width: 100%
+
+.fade-enter-active
+  transition-delay: 0.5s
+  transition: all 0.5s
+
+.fade-leave-active
+  transition: all 0.5s
+
+.fade-leave-to
+  opacity: 0
+
+.fade-enter
+  opacity: 0
+  // transform: translateY(30px)
 </style>
