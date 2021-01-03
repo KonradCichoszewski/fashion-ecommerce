@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="product"
-    v-if="image"
-    @click="
-      $router.push({ name: 'ProductDetails', params: { id: product.id } })
-    "
-  >
+  <div class="product" v-if="image" @click="showProduct(product)">
     <div class="no-image">
       <img :src="image" class="image" />
     </div>
@@ -33,6 +27,30 @@ export default {
         description += " " + this.product.description;
       }
       return description;
+    }
+  },
+  methods: {
+    showProduct(product) {
+      let group;
+
+      switch (product.group) {
+        case 1:
+          group = "man";
+          break;
+        case 2:
+          group = "woman";
+          break;
+        case 3:
+          group = "kids";
+          break;
+        default:
+          group = "man";
+      }
+
+      this.$router.push({
+        name: "ProductDetails",
+        params: { group: group, id: product.id }
+      });
     }
   }
 };

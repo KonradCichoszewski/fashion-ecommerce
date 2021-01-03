@@ -5,8 +5,6 @@
       <SideMenu v-if="this.$route.meta.side" />
       <router-view class="view" />
     </div>
-    <!-- <button class="return" @click="scroll" /> -->
-
     <Footer />
   </div>
 </template>
@@ -50,14 +48,4 @@ export default {
 .view
   background: $secondarybg
   flex-grow: 1
-
-.return
-  position: fixed
-  bottom: 300px
-  right: 300px
-  height: 20px
-  width: 20px
-  border-radius: 10px
-  background-color: red
-  z-index: 3
 </style>

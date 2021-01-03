@@ -53,7 +53,7 @@ const routes = [
   //     component: ProductsListing,
   // },
   {
-    path: '/product/:id',
+    path: '/:group/product/:id',
     meta: { side: true },
     name: 'ProductDetails',
     component: ProductDetails,
