@@ -19,7 +19,6 @@ export default {
   },
   computed: {
     products() {
-      console.log("ref");
       let params = this.$route.path.split("/");
       let numeralParams = { group: null, category: null, subcategory: null };
       let headers = this.$store.state.headers;
@@ -27,11 +26,7 @@ export default {
       let category = null;
       let subcategory = null;
 
-      console.log("params", params);
-
       header = headers.find(obj => obj.title === params[1].toUpperCase());
-
-      console.log("header", header);
 
       numeralParams.group = header.group;
 
@@ -49,25 +44,27 @@ export default {
         numeralParams.subcategory = subcategory.subcategory;
       } else numeralParams.subcategory = null;
 
-      console.log(numeralParams);
-
-      let products = this.$store.state.products.filter(
-        product => product.group === numeralParams.group
-      );
-
-      if (numeralParams.category !== null) {
-        products = products.filter(
-          product => product.category === numeralParams.category
+      if (this.$store.state.products !== null) {
+        let products = this.$store.state.products.filter(
+          product => product.group === numeralParams.group
         );
-      }
 
-      if (numeralParams.subcategory !== null) {
-        products = products.filter(
-          product => product.subcategory === numeralParams.subcategory
-        );
-      }
+        if (numeralParams.category !== null) {
+          products = products.filter(
+            product => product.category === numeralParams.category
+          );
+        }
 
-      return products;
+        if (numeralParams.subcategory !== null) {
+          products = products.filter(
+            product => product.subcategory === numeralParams.subcategory
+          );
+        }
+
+        return products;
+      } else {
+        return null;
+      }
     }
   }
 };
@@ -85,16 +82,16 @@ export default {
   width: 100%
 
 .fade-enter-active
-  transition-delay: 0.5s
-  transition: all 0.5s
+  transition: all 1s
 
 .fade-leave-active
-  transition: all 0.5s
+  transition: all 1s
 
 .fade-leave-to
   opacity: 0
+  transform: scale(0.97, 0.97)
 
 .fade-enter
   opacity: 0
-  // transform: translateY(30px)
+  transform: scale(0.97, 0.97)
 </style>

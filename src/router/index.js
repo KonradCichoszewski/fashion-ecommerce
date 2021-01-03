@@ -53,8 +53,7 @@ const routes = [
   //     component: ProductsListing,
   // },
   {
-    path: '/man/:category/:subcategory/:id',
-    alias: ['/woman/:category/:subcategory/:id', '/kids/:category/:subcategory/:id'],
+    path: '/product/:id',
     meta: { side: true },
     name: 'ProductDetails',
     component: ProductDetails,

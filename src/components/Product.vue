@@ -1,5 +1,11 @@
 <template>
-  <div class="product" v-if="image">
+  <div
+    class="product"
+    v-if="image"
+    @click="
+      $router.push({ name: 'ProductDetails', params: { id: product.id } })
+    "
+  >
     <div class="no-image">
       <img :src="image" class="image" />
     </div>
