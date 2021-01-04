@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar" :class="{ dark: $route.name === 'Home' }">
+  <div class="navbar" :class="{ dark: $route.name === 'Home', hidden: hidden }">
     <div class="logo" @click="$router.push('/')">
       <img class="logo-image" src="@/assets/logo.png" />
       <p class="logo-text">Vuetyful</p>
@@ -17,7 +17,7 @@
       >
         Log in
       </h3>
-      <h3 v-else @click="$store.commit('logout')">Log out</h3>
+      <h3 v-else class="option" @click="$store.commit('logout')">Log out</h3>
       <router-link v-if="!$route.name === 'Home'" class="option" to="/cart"
         ><img class="cart" src="@/assets/cart.png"
       /></router-link>
@@ -26,7 +26,36 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      hidden: false,
+      lastPageYOffset: 0
+    };
+  },
+  computed: {
+    currentRoute() {
+      return this.$route.name;
+    }
+  },
+  methods: {
+    handleScroll() {
+      if (window.pageYOffset > this.lastPageYOffset) this.hidden = true;
+      else this.hidden = false;
+      this.lastPageYOffset = window.pageYOffset;
+    }
+  },
+  watch: {
+    currentRoute() {
+      if (this.currentRoute === "Home")
+        window.addEventListener("scroll", this.handleScroll);
+      else window.removeEventListener("scroll", this.handleScroll);
+    }
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+};
 </script>
 
 <style lang="sass" scoped>
@@ -38,7 +67,7 @@ export default {};
   top: 0
   box-shadow: 0 2px 5px #99999944
   z-index: 1
-  transition-duration: 0.15s
+  transition-duration: 0.6s
   width: 100%
   &.dark
     background: #33333355
@@ -46,6 +75,10 @@ export default {};
     height: 60px
     box-shadow: none
     position: fixed
+    > div > img
+      height: 40px
+    &.hidden
+      transform: translateY(-60px)
     &:hover
       background: #33333399
 

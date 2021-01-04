@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     login() {
-      if (this.email && this.password) {
+      if (this.email !== null && this.password !== null) {
         this.$store.commit("login", this.email);
         this.$router.push("/");
       }
